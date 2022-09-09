@@ -8,6 +8,31 @@
 import Screenshotting
 import SwiftUI
 
+/// Create `App Store preview` for a given device size.
+///
+///     func marketingPreview(on device: Device) -> some View {
+///         // ...
+///         return MarketingPreview(...)
+///     }
+///
+///     struct MarketingPreview_Previews: PreviewProvider {
+///         static let devices = [Device.iPhone13Pro, .iPhone13ProMax]
+///         static let locales = [Locale.en_US, .ru_RU]
+///
+///         static var previews: some View {
+///             ForEach(devices, id: \.self) { device in
+///                 HStack(spacing: 0) {
+///                     ForEach(locales, id: \.self) { locale in
+///                         marketingPreview(on: device)
+///                             .environment(\.locale, locale)
+///                     }
+///                 }
+///                 .previewDisplayName(device.name)
+///             }
+///             .previewLayout(.sizeThatFits)
+///         }
+///     }
+///
 public struct MarketingPreview<Marketing, Content>: View
 where Marketing: View,
 Content: View {
