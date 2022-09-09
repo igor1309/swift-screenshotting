@@ -12,7 +12,7 @@ public struct Device {
     public let name: String
     public let size: CGSize
     
-    public init(_ type: Device.DeviceType, name: String, size: CGSize) {
+    public init(_ type: DeviceType, name: String, size: CGSize) {
         self.type = type
         self.name = name
         self.size = size

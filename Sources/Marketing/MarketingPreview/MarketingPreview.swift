@@ -1,10 +1,11 @@
 //
 //  MarketingPreview.swift
-//  Screenshotting
+//  Marketing
 //
 //  Created by Igor Malyarov on 08.09.2022.
 //
 
+import Screenshotting
 import SwiftUI
 
 public struct MarketingPreview<Marketing, Content>: View

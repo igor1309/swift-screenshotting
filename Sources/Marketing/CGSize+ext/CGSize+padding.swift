@@ -1,6 +1,6 @@
 //
 //  CGSize+padding.swift
-//  Screenshotting
+//  Marketing
 //
 //  Created by Igor Malyarov on 09.09.2022.
 //

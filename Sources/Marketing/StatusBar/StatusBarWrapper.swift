@@ -1,6 +1,6 @@
 //
 //  StatusBarWrapper.swift
-//  AppStoreScreenshotPreview
+//  Marketing
 //
 //  Created by Igor Malyarov on 08.09.2022.
 //

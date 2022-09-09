@@ -1,6 +1,6 @@
 //
 //  View+frame.swift
-//  AppStoreScreenshotPreview
+//  Marketing
 //
 //  Created by Igor Malyarov on 09.09.2022.
 //
