@@ -21,7 +21,7 @@ If you want to use `Screenshotting` in any other project that uses [SwiftPM](htt
 dependencies: [
     .package(
         url: "https://github.com/igor1309/swift-screenshotting.git",
-        from: .init(0, 0, 0)
+        from: .init(0, 0, 1)
     )
 ]
 ```
