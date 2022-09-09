@@ -4,6 +4,9 @@ import PackageDescription
 
 let package = Package(
     name: "swift-screenshotting",
+    platforms: [
+        .iOS(.v15)
+    ],
     products: [
         .library(name: "Screenshotting", targets: ["Screenshotting"]),
     ],
