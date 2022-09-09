@@ -35,7 +35,7 @@ import SwiftUI
 ///
 public struct MarketingPreview<Marketing, Content>: View
 where Marketing: View,
-Content: View {
+      Content: View {
     
     let device: Device
     let offset: CGFloat
@@ -70,39 +70,88 @@ Content: View {
 }
 
 struct MarketingPreview_Previews: PreviewProvider {
-    static let device: Device = .iPhone13Pro
-    
     static var previews: some View {
+        DemoView()
+    }
+}
+
+struct DemoView: View {
+    let device: Device = .iPhone13Pro
+    
+    var body: some View {
         Group {
-            marketingPreview()
+            group(device: device)
+                .previewDisplayName("Light - \(device.name)")
             
-            marketingPreview()
+            group(device: device)
                 .preferredColorScheme(.dark)
+                .previewDisplayName("Dark - \(device.name)")
         }
-        .environment(\.locale, .init(identifier: "ru-RU"))
         .previewLayout(.sizeThatFits)
     }
     
-    static private func marketingPreview() -> some View {
+    private func group(device: Device) -> some View {
+        Group {
+            marketingPreview(.top, 170, on: device)
+            marketingPreview(.bottom, -170, on: device)
+        }
+    }
+    
+    private func marketingPreview(
+        _ alignment: Alignment,
+        _ offset: CGFloat,
+        on device: Device
+    ) -> some View {
         MarketingPreview(
             device: device,
-            offset: 50,
-            marketing: marketing,
+            offset: offset,
+            marketing: { marketing(alignment: alignment) },
             content: content
         )
     }
     
-    static private func marketing() -> some View {
-        ZStack(alignment: .top) {
+    private func marketing(
+        alignment: Alignment
+    ) -> some View {
+        ZStack(alignment: alignment) {
             Color.orange
             
-            Text("This is a preview for the App Store")
+            Text("This is a preview for the App Store with a long long long long long long long marketing text")
+                .multilineTextAlignment(.center)
                 .padding()
                 .font(.largeTitle.bold())
         }
     }
     
-    static private func content() -> some View {
-        Color.indigo
+    private func content() -> some View {
+        ZStack {
+            Color.indigo
+            
+            TabView {
+                tab("Networks", icon: "network")
+                tab("Charts", icon: "chart.bar")
+                tab("Account", icon: "person")
+            }
+        }
+    }
+    
+    private func tab(
+        _ title: String,
+        icon: String
+    ) -> some View {
+        NavigationView {
+            List {
+                Section("Networks") {
+                    ForEach(0..<26) { i in
+                        Text(String(repeating: "a", count: 1 + i * 20 % 18))
+                    }
+                }
+            }
+            .redacted(reason: .placeholder)
+            .navigationTitle(title)
+        }
+        .tabItem {
+            Label(title, systemImage: icon)
+        }
     }
 }
