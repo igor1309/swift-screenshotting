@@ -12,9 +12,43 @@ SwiftUI previews are not available in test targets, so if you want to have Swift
 
 _The following is optional, take it as an use example. For clarity and simplicity, we would consider ourselves living in the SwiftUI world._
 
-Create new app target named `AppStorePreviews`. Compose the views you'd like screenshots of.
+Create new __app target__ named `AppStorePreviews`. Compose the views you'd like screenshots of. You can use `MarketingPreview` from `Marketing` library to assist you.
 
 ![Previews](/Docs/previews.png)
+
+Create new __test target__ named `AppStorePreviewsTests`. Add tests...
+
+```swift
+let locales: [Locale] = ...
+let devices: [Device] = ...
+
+let marketingPreview: (Device) -> MarketingPreview = { device in
+    // ...
+}
+
+try screenshots(marketingPreview, with: locales, on: devices)
+```
+
+Create (or tweak) __scheme__ `AppStorePreviews` ...
+
+In fastlane's `Snapfile` set `scheme` and `output directory`:
+
+```ruby
+scheme "AppStorePreviews"
+output_directory "./AppStorePreviewsTests/AppStoreScreenshots"
+```
+
+Run ... Output:
+
+```
+AppStoreScreenshots
+├── en-US
+│   ├── en-US-iPhone-13-Pro-1MarketingMaterial.png
+│   └── en-US-iPhone-13-Pro-2MarketingMaterial.png
+└── ru-RU
+    ├── ru-RU-iPhone-13-Pro-1MarketingMaterial.png
+    └── ru-RU-iPhone-13-Pro-2MarketingMaterial.png
+```
 
 See discussion in blog [Automating app screenshots and previews for the App Store with Snapshotting and fastlane | Swift and iOS dev with Igor](https://igor1309.dev/articles/2022/2022-08-20-fastlane-screenshots/).
 
