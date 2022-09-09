@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Device {
+public struct Device: Equatable {
     public let type: DeviceType
     public let name: String
     public let size: CGSize
