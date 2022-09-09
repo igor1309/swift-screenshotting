@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Device: Equatable {
+public struct Device: Equatable, Hashable {
     public let type: DeviceType
     public let name: String
     public let size: CGSize
@@ -21,5 +21,12 @@ public struct Device: Equatable {
     public enum DeviceType {
         case iPhone
         case iPad
+    }
+}
+
+extension CGSize: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(width)
+        hasher.combine(height)
     }
 }
