@@ -10,14 +10,12 @@ import SwiftUI
 #warning("finish with description")
 /// Uses trailing closure
 ///
-///     ```swift
 ///     let locales: [Locale] = ...
 ///     let devices: [Device] = ...
 ///
 ///     try screenshots(with: locales, on: devices) { device in
 ///         marketingMaterial(on: device)
 ///     }
-///     ```
 ///
 /// - Parameters:
 ///   - screenshotDirectory: Optional directory to save screenshots. By default screenshots will be saved in a directory with the same name as the test file, and that directory will sit inside a directory `AppStoreScreenshots` next to your test file.
@@ -53,12 +51,10 @@ public func screenshots<V: View>(
 #warning("finish with description")
 /// Inline call
 ///
-///     ```swift
 ///     let locales: [Locale] = ...
 ///     let devices: [Device] = ...
 ///
 ///     try screenshots(marketingPreview(on:), with: locales, on: devices)
-///     ```
 ///
 /// - Parameters:
 ///   - screenshotDirectory: Optional directory to save screenshots. By default screenshots will be saved in a directory with the same name as the test file, and that directory will sit inside a directory `AppStoreScreenshots` next to your test file.
