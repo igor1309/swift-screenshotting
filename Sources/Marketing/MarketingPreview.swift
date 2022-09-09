@@ -17,7 +17,12 @@ Content: View {
     let marketing: () -> Marketing
     let content: () -> Content
     
-    public init(device: Device, offset: CGFloat, marketing: @escaping () -> Marketing, content: @escaping () -> Content) {
+    public init(
+        device: Device,
+        offset: CGFloat,
+        marketing: @escaping () -> Marketing,
+        content: @escaping () -> Content
+    ) {
         self.device = device
         self.offset = offset
         self.marketing = marketing
