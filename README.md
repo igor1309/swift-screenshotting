@@ -2,6 +2,8 @@
 
 A small library to create AppStore screenshots.
 
+See discussion in [Automating app screenshots and previews for the App Store with Snapshotting and fastlane | Swift and iOS dev with Igor](https://igor1309.dev/articles/2022/2022-08-20-fastlane-screenshots/).
+
 ## Installation
 
 ### 🛠 Xcode
