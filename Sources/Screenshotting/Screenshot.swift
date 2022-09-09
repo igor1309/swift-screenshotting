@@ -8,6 +8,17 @@
 import SwiftUI
 
 #warning("finish with description")
+/// Uses trailing closure
+///
+///     ```swift
+///     let locales: [Locale] = ...
+///     let devices: [Device] = ...
+///
+///     try screenshots(with: locales, on: devices) { device in
+///         marketingMaterial(on: device)
+///     }
+///     ```
+///
 /// - Parameters:
 ///   - screenshotDirectory: Optional directory to save screenshots. By default screenshots will be saved in a directory with the same name as the test file, and that directory will sit inside a directory `AppStoreScreenshots` next to your test file.
 ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
@@ -37,6 +48,43 @@ public func screenshots<V: View>(
             )
         }
     }
+}
+
+#warning("finish with description")
+/// Inline call
+///
+///     ```swift
+///     let locales: [Locale] = ...
+///     let devices: [Device] = ...
+///
+///     try screenshots(marketingPreview(on:), with: locales, on: devices)
+///     ```
+///
+/// - Parameters:
+///   - screenshotDirectory: Optional directory to save screenshots. By default screenshots will be saved in a directory with the same name as the test file, and that directory will sit inside a directory `AppStoreScreenshots` next to your test file.
+///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
+///   - testName: The name of the test in which failure occurred. Defaults to the function name of the test case in which this function was called.
+///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
+public func screenshots<V: View>(
+    _ view: @escaping (Device) -> V,
+    with locales: [Locale],
+    on devices: [Device],
+    screenshotDirectory: String? = nil,
+    screenshotDirectoryName: String = "AppStoreScreenshots",
+    file: StaticString = #file,
+    testName: String = #function,
+    line:  UInt = #line
+) throws {
+    try screenshots(
+        with: locales,
+        on: devices,
+        view: view,
+        screenshotDirectory: screenshotDirectory,
+        screenshotDirectoryName: screenshotDirectoryName,
+        file: file,
+        testName: testName,
+        line: line
+    )
 }
 
 #warning("finish with description")
