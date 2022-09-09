@@ -2,7 +2,9 @@
 
 A small library to create AppStore previews and screenshots.
 
-Use `MarketingPreview` to create App Store previews (SwiftUI views) and `screenshots` to create and save screenshots of the view for provided `devices` (device sizes) and `locales`.
+(Optionally) use `MarketingPreview` to create App Store previews (SwiftUI views) and `screenshots` to create and save screenshots of the view for provided `devices` (device sizes) and `locales`.
+
+SwiftUI previews are not available in test targets, so if you want to have SwiftUI previews it makes sense to create a separate target for views that would be the sources for the App Store screenshots/previews, and import that target into test target that actually produce screenshots (png-files).
 
 See discussion in blog [Automating app screenshots and previews for the App Store with Snapshotting and fastlane | Swift and iOS dev with Igor](https://igor1309.dev/articles/2022/2022-08-20-fastlane-screenshots/).
 
