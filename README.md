@@ -6,6 +6,16 @@ A small library to create AppStore previews and screenshots.
 
 SwiftUI previews are not available in test targets, so if you want to have SwiftUI previews it makes sense to create a separate target for views that would be the sources for the App Store screenshots/previews, and import that target into test target that actually produce screenshots (png-files).
 
+`screenshot` and `screenshots`
+
+## Preparation
+
+_The following is optional, take it as an use example. For clarity and simplicity, we would consider ourselves living in the SwiftUI world._
+
+Create new app target named `AppStorePreviews`. Compose the views you'd like screenshots of.
+
+![Previews](/Docs/previews.png)
+
 See discussion in blog [Automating app screenshots and previews for the App Store with Snapshotting and fastlane | Swift and iOS dev with Igor](https://igor1309.dev/articles/2022/2022-08-20-fastlane-screenshots/).
 
 ## Installation
