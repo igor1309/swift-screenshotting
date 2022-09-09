@@ -17,8 +17,3 @@ public extension Device {
     static let iPhoneXSMax: Self = .init(.iPhone, name: "iPhone XS Max", size: .iPhoneXSMax)
     static let iPhone13ProMax: Self = .init(.iPhone, name: "iPhone 13 Pro Max", size: .iPhone13ProMax)
 }
-
-public extension Array where Element == Device {
-    static let all: Self = [.iPhoneSE2ndGen, .iPhone13mini, .iPhone8Plus, .iPhoneX, .iPhone11, .iPhone13Pro, .iPhoneXSMax, .iPhone13ProMax]
-    static let mainDevices: Self = [.iPhone13Pro, .iPhone13ProMax]
-}
