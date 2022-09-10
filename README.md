@@ -10,7 +10,7 @@ SwiftUI previews are not available in test targets, so if you want to have Swift
 
 ## Preparation
 
-_The following is optional, take it as an use example. For clarity and simplicity, we would consider ourselves living in the SwiftUI world._
+_The following is optional, take it as an use example. For clarity and simplicity, we would consider ourselves living in the `SwiftUI` world._
 
 Create new __app target__ named `AppStorePreviews`. Compose the views you'd like screenshots of. You can use `AppStorePreview` from `AppStorePreviewing` library to assist you.
 
