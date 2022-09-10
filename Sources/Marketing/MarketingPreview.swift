@@ -8,7 +8,7 @@
 import Screenshotting
 import SwiftUI
 
-/// Create `App Store preview` for a given device size.
+/// Create `Marketing (App Store) preview` for a given device size.
 ///
 ///     func marketingPreview(on device: Device) -> some View {
 ///         // ...
@@ -21,11 +21,9 @@ import SwiftUI
 ///
 ///         static var previews: some View {
 ///             ForEach(devices, id: \.self) { device in
-///                 HStack(spacing: 0) {
-///                     ForEach(locales, id: \.self) { locale in
-///                         marketingPreview(on: device)
-///                             .environment(\.locale, locale)
-///                     }
+///                 ForEach(locales, id: \.self) { locale in
+///                     marketingPreview(on: device)
+///                         .environment(\.locale, locale)
 ///                 }
 ///                 .previewDisplayName(device.name)
 ///             }
@@ -75,17 +73,23 @@ struct MarketingPreview_Previews: PreviewProvider {
     }
 }
 
-struct MarketingPreviewDemoView: View {
+private extension View {
+    func previewDisplayName(
+        _ device: Device,
+        _ colorScheme: ColorScheme
+    ) -> some View {
+        previewDisplayName("\(device.name) | \(colorScheme)")
+    }
+}
+
+private struct MarketingPreviewDemoView: View {
     let device: Device = .iPhone13Pro
     
     var body: some View {
-        Group {
+        ForEach(ColorScheme.allCases, id: \.self) { colorScheme in
             group(device: device)
-                .previewDisplayName("Light - \(device.name)")
-            
-            group(device: device)
-                .preferredColorScheme(.dark)
-                .previewDisplayName("Dark - \(device.name)")
+                .previewDisplayName(device, colorScheme)
+                .preferredColorScheme(colorScheme)
         }
         .previewLayout(.sizeThatFits)
     }
@@ -141,7 +145,7 @@ struct MarketingPreviewDemoView: View {
     ) -> some View {
         NavigationView {
             List {
-                Section("Networks") {
+                Section(title) {
                     ForEach(0..<26) { i in
                         Text(String(repeating: "a", count: 1 + i * 20 % 18))
                     }
