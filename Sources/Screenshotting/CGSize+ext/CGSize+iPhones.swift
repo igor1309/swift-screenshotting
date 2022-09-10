@@ -10,12 +10,12 @@ import SwiftUI
 public extension CGSize {
     /// `4"` (320 x 568 @2x)
     /// iPhone SE (1st Gen), iPod Touch (7th Gen)
-    static let iPhoneSE1stGen: Self = .init(width: 320, height: 568)
-    static let iPodTouch7thGen: Self = .init(width: 320, height: 568)
+    static let iPhoneSE1st: Self = .init(width: 320, height: 568)
+    static let iPodTouch7th: Self = .init(width: 320, height: 568)
 
     /// `4.7"` (375 x 667 points @2x)
     /// iPhone SE (2nd Gen), iPhone 8, iPhone 7, iPhone 6S
-    static let iPhoneSE2ndGen: Self = .init(width: 375, height: 667)
+    static let iPhoneSE2nd: Self = .init(width: 375, height: 667)
     static let iPhone8: Self = .init(width: 375, height: 667)
     static let iPhone7: Self = .init(width: 375, height: 667)
     static let iPhone6S: Self = .init(width: 375, height: 667)

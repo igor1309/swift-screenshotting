@@ -13,7 +13,7 @@ final class DeviceStaticInstancesTests: XCTestCase {
     func test_device_name() {
         /// `4.7"` (375 x 667 points @2x)
         /// iPhone SE (2nd Gen), iPhone 8, iPhone 7, iPhone 6S
-        XCTAssertEqual(Device.iPhoneSE2ndGen.name, "iPhone SE (2nd Gen)")
+        XCTAssertEqual(Device.iPhoneSE2nd.name, "iPhone SE (2nd Gen)")
         
         /// `5.4"` (375 x 812 points @3x)
         /// iPhone 13 mini, iPhone 12 mini
@@ -48,7 +48,7 @@ final class DeviceStaticInstancesTests: XCTestCase {
     func test_device_scale() {
         /// `4.7"` (375 x 667 points @2x)
         /// iPhone SE (2nd Gen), iPhone 8, iPhone 7, iPhone 6S
-        XCTAssertEqual(Device.iPhoneSE2ndGen.scale, 2)
+        XCTAssertEqual(Device.iPhoneSE2nd.scale, 2)
         
         /// `5.4"` (375 x 812 points @3x)
         /// iPhone 13 mini, iPhone 12 mini
@@ -82,7 +82,7 @@ final class DeviceStaticInstancesTests: XCTestCase {
     func test_device_width() {
         /// `4.7"` (375 x 667 points @2x)
         /// iPhone SE (2nd Gen), iPhone 8, iPhone 7, iPhone 6S
-        XCTAssertEqual(Device.iPhoneSE2ndGen.size.width, 375)
+        XCTAssertEqual(Device.iPhoneSE2nd.size.width, 375)
         
         /// `5.4"` (375 x 812 points @3x)
         /// iPhone 13 mini, iPhone 12 mini
@@ -116,7 +116,7 @@ final class DeviceStaticInstancesTests: XCTestCase {
     func test_device_height() {
         /// `4.7"` (375 x 667 points @2x)
         /// iPhone SE (2nd Gen), iPhone 8, iPhone 7, iPhone 6S
-        XCTAssertEqual(Device.iPhoneSE2ndGen.size.height, 667)
+        XCTAssertEqual(Device.iPhoneSE2nd.size.height, 667)
         
         /// `5.4"` (375 x 812 points @3x)
         /// iPhone 13 mini, iPhone 12 mini
