@@ -126,7 +126,6 @@ public func screenshot<V: View>(
     
     let uiImage = try view()
         .environment(\.locale, locale)
-        .ignoresSafeArea()
         .snapshot()
     
     guard let data = uiImage.pngData() else {
@@ -141,6 +140,7 @@ struct PNGError: Error {}
 extension View {
     func snapshot() -> UIImage {
         let root = self
+            .edgesIgnoringSafeArea(.top)
         let controller = UIHostingController(rootView: root)
         let view = controller.view
         
