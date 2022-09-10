@@ -2,7 +2,7 @@
 
 A small library to create AppStore previews and screenshots.
 
-(Optionally) use `MarketingPreview` to create App Store previews (SwiftUI views) and `screenshots` to create and save screenshots of the view for provided `devices` (device sizes) and `locales`.
+(Optionally) use `AppStorePreview` to create App Store previews (SwiftUI views) and `screenshots` to create and save screenshots of the view for provided `devices` (device sizes) and `locales`.
 
 SwiftUI previews are not available in test targets, so if you want to have SwiftUI previews it makes sense to create a separate target for views that would be the sources for the App Store screenshots/previews, and import that target into test target that actually produce screenshots (png-files).
 
@@ -12,7 +12,7 @@ SwiftUI previews are not available in test targets, so if you want to have Swift
 
 _The following is optional, take it as an use example. For clarity and simplicity, we would consider ourselves living in the SwiftUI world._
 
-Create new __app target__ named `AppStorePreviews`. Compose the views you'd like screenshots of. You can use `MarketingPreview` from `Marketing` library to assist you.
+Create new __app target__ named `AppStorePreviews`. Compose the views you'd like screenshots of. You can use `AppStorePreview` from `AppStorePreviewing` library to assist you.
 
 ![Previews](/Docs/previews.png)
 
@@ -22,11 +22,11 @@ Create new __test target__ named `AppStorePreviewsTests`. Add tests...
 let locales: [Locale] = ...
 let devices: [Device] = ...
 
-let marketingPreview: (Device) -> MarketingPreview = { device in
+let appStorePreview: (Device) -> AppStorePreview = { device in
     // ...
 }
 
-try screenshots(marketingPreview, with: locales, on: devices)
+try screenshots(appStorePreview, with: locales, on: devices)
 ```
 
 Create (or tweak) __scheme__ `AppStorePreviews` ...
