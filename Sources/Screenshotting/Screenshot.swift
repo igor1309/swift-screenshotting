@@ -124,21 +124,19 @@ public func screenshot<V: View>(
         withIntermediateDirectories: true
     )
     
-    let uiImage = try view()
+    let data = try view()
         .environment(\.locale, locale)
-        .snapshot()
-    
-    guard let data = uiImage.pngData() else {
-        throw PNGError()
-    }
+        .snapshot(scale: device.scale)
     
     try data.write(to: screenshotFileURL)
 }
 
-struct PNGError: Error {}
+extension Device {
+    var scale: CGFloat { 3 }
+}
 
 extension View {
-    func snapshot() -> UIImage {
+    func snapshot(scale: CGFloat) -> Data {
         let root = self
             .edgesIgnoringSafeArea(.top)
         let controller = UIHostingController(rootView: root)
@@ -148,9 +146,13 @@ extension View {
         view?.bounds = CGRect(origin: .zero, size: targetSize)
         view?.backgroundColor = .clear
         
-        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        format.opaque = true
         
-        return renderer.image { _ in
+        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
+        
+        return renderer.pngData { _ in
             view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
         }
     }
