@@ -131,10 +131,6 @@ public func screenshot<V: View>(
     try data.write(to: screenshotFileURL)
 }
 
-extension Device {
-    var scale: CGFloat { 3 }
-}
-
 extension View {
     func snapshot(scale: CGFloat) -> Data {
         let root = self
