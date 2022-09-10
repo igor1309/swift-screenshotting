@@ -145,8 +145,11 @@ extension View {
         let format = UIGraphicsImageRendererFormat()
         format.scale = scale
         format.opaque = true
+        format.preferredRange = .extended
         
-        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
+        let bounds = controller.view.bounds
+        
+        let renderer = UIGraphicsImageRenderer(bounds: bounds, format: format)
         
         return renderer.pngData { _ in
             view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
