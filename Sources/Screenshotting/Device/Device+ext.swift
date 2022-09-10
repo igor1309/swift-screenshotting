@@ -8,6 +8,7 @@
 import CoreGraphics
 
 public extension Device {
+    
     /// `4.7"` (375 x 667 points @2x)
     /// iPhone SE (2nd Gen), iPhone 8, iPhone 7, iPhone 6S
     static let iPhoneSE2nd: Self = .init(.iPhone, "iPhone SE (2nd Gen)", .iPhoneSE2nd, 2)
