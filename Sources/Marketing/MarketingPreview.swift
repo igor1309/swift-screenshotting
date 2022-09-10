@@ -71,11 +71,11 @@ where Marketing: View,
 
 struct MarketingPreview_Previews: PreviewProvider {
     static var previews: some View {
-        DemoView()
+        MarketingPreviewDemoView()
     }
 }
 
-struct DemoView: View {
+struct MarketingPreviewDemoView: View {
     let device: Device = .iPhone13Pro
     
     var body: some View {
