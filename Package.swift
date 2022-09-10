@@ -8,17 +8,17 @@ let package = Package(
         .iOS(.v15)
     ],
     products: [
-        .library(name: "Marketing", targets: ["Marketing"]),
+        .library(name: "AppStorePreviewing", targets: ["AppStorePreviewing"]),
         .library(name: "Screenshotting", targets: ["Screenshotting"]),
     ],
     targets: [
         .target(
-            name: "Marketing",
+            name: "AppStorePreviewing",
             dependencies: ["Screenshotting"]
         ),
         .testTarget(
-            name: "MarketingTests",
-            dependencies: ["Marketing"]
+            name: "AppStorePreviewingTests",
+            dependencies: ["AppStorePreviewing"]
         ),
         .target(name: "Screenshotting"),
         .testTarget(
