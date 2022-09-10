@@ -91,10 +91,14 @@ targets: [
 ]
 ```
 
-### Why not `SnapshotTesting`
+## Why not `SnapshotTesting`
 
 Been a huge fan of [Point-Free](https://www.pointfree.co) and `SnapshotTesting` in particular (also an inspiration), I can’t use it here
 
 * Opinionated about folder (not a dealbreaker) and file naming
 * Flat structure - can’t use localization subfolders
 
+## TODO
+
+* Device chrome for iPad and other iPhones
+* iPhone 14 island
