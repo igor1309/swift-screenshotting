@@ -90,3 +90,11 @@ targets: [
     )
 ]
 ```
+
+### Why not `SnapshotTesting`
+
+Been a huge fan of [Point-Free](https://www.pointfree.co) and `SnapshotTesting` in particular (also an inspiration), I can’t use it here
+
+* Opinionated about folder (not a dealbreaker) and file naming
+* Flat structure - can’t use localization subfolders
+
