@@ -148,14 +148,22 @@ extension View {
         format.preferredRange = .extended
         
         let bounds = controller.view.bounds
-        
         let renderer = UIGraphicsImageRenderer(bounds: bounds, format: format)
+        var hasRendered = false
         
-        return renderer.pngData { _ in
-            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        let data = renderer.pngData { _ in
+            hasRendered = view?.drawHierarchy(in: bounds, afterScreenUpdates: true) ?? false
         }
+        
+        guard hasRendered else {
+            throw DrawHierarchyError()
+        }
+        
+        return data
     }
 }
+
+struct DrawHierarchyError: Error {}
 
 extension String {
     func sanitize() -> String {
