@@ -89,6 +89,7 @@ public func screenshots<V: View>(
 ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
 ///   - testName: The name of the test in which failure occurred. Defaults to the function name of the test case in which this function was called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
+@discardableResult
 public func screenshot<V: View>(
     _ view: @autoclosure () throws -> V,
     with locale: Locale,
@@ -97,8 +98,8 @@ public func screenshot<V: View>(
     screenshotDirectoryName: String = "AppStoreScreenshots",
     file: StaticString = #file,
     testName: String = #function,
-    line:  UInt = #line
-) throws {
+    line: UInt = #line
+) throws -> URL {
     let screenshotDirectoryURL = screenshotDirectory
         .map { URL(fileURLWithPath: $0, isDirectory: true) }
     ?? URL(fileURLWithPath: "\(file)", isDirectory: false)
@@ -129,6 +130,8 @@ public func screenshot<V: View>(
         .snapshot(scale: device.scale)
     
     try data.write(to: screenshotFileURL)
+    
+    return screenshotFileURL
 }
 
 extension View {
