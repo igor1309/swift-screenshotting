@@ -100,24 +100,14 @@ public func screenshot<V: View>(
     testName: String = #function,
     line: UInt = #line
 ) throws -> URL {
-    let screenshotDirectoryURL = screenshotDirectory
-        .map { URL(fileURLWithPath: $0, isDirectory: true) }
-    ?? URL(fileURLWithPath: "\(file)", isDirectory: false)
-        .deletingLastPathComponent()
-        .appendingPathComponent(screenshotDirectoryName)
-        .appendingPathComponent(locale.identifier)
-    
-    let testName = testName.replacingOccurrences(
-        of: #"^test_?"#,
-        with: "",
-        options: .regularExpression
+    let (screenshotDirectoryURL, screenshotFileURL) = makeFileAndDirectoryURLs(
+        locale: locale,
+        device: device,
+        directory: screenshotDirectory,
+        directoryName: screenshotDirectoryName,
+        file: file,
+        testName: testName
     )
-    
-    let fileName = "\(locale.identifier)-\(device.name)-\(testName)"
-        .sanitize()
-    let screenshotFileURL = screenshotDirectoryURL
-        .appendingPathComponent(fileName)
-        .appendingPathExtension("png")
     
     let fileManager = FileManager.default
     try fileManager.createDirectory(
@@ -132,6 +122,38 @@ public func screenshot<V: View>(
     try data.write(to: screenshotFileURL)
     
     return screenshotFileURL
+}
+
+func makeFileAndDirectoryURLs(
+    locale: Locale,
+    device: Device,
+    directory: String?,
+    directoryName: String,
+    file: StaticString,
+    testName: String
+) -> (directoryURL: URL, fileURL: URL) {
+    let directoryName = directoryName.isEmpty ? "___" : directoryName
+    
+    let directoryURL = directory
+        .map { URL(fileURLWithPath: $0, isDirectory: true) }
+    ?? URL(fileURLWithPath: "\(file)", isDirectory: false)
+        .deletingLastPathComponent()
+        .appendingPathComponent(directoryName)
+        .appendingPathComponent(locale.identifier)
+    
+    let testName = testName.replacingOccurrences(
+        of: #"^test_?"#,
+        with: "",
+        options: .regularExpression
+    )
+    
+    let fileName = "\(locale.identifier)-\(device.name)-\(testName)"
+        .sanitize()
+    let fileURL = directoryURL
+        .appendingPathComponent(fileName)
+        .appendingPathExtension("png")
+
+    return (directoryURL, fileURL)
 }
 
 extension View {
