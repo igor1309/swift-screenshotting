@@ -18,12 +18,14 @@ let package = Package(
         ),
         .testTarget(
             name: "AppStorePreviewingTests",
-            dependencies: ["AppStorePreviewing"]
+            dependencies: ["AppStorePreviewing"],
+            resources: [.process("Resources")]
         ),
         .target(name: "Screenshotting"),
         .testTarget(
             name: "ScreenshottingTests",
-            dependencies: ["Screenshotting"]
+            dependencies: ["Screenshotting"],
+            resources: [.process("Resources")]
         ),
     ]
 )
