@@ -157,7 +157,7 @@ func makeFileAndDirectoryURLs(
 }
 
 extension View {
-    func snapshot(scale: CGFloat) -> Data {
+    public func snapshot(scale: CGFloat) throws -> Data {
         let root = self
             .edgesIgnoringSafeArea(.top)
         let controller = UIHostingController(rootView: root)
