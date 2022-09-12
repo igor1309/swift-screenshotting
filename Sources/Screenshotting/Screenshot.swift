@@ -22,6 +22,7 @@ import SwiftUI
 ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
 ///   - testName: The name of the test in which failure occurred. Defaults to the function name of the test case in which this function was called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
+@MainActor
 public func screenshots<V: View>(
     with locales: [Locale],
     on devices: [Device],
@@ -61,6 +62,7 @@ public func screenshots<V: View>(
 ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
 ///   - testName: The name of the test in which failure occurred. Defaults to the function name of the test case in which this function was called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
+@MainActor
 public func screenshots<V: View>(
     _ view: @escaping (Device) -> V,
     with locales: [Locale],
@@ -89,6 +91,7 @@ public func screenshots<V: View>(
 ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
 ///   - testName: The name of the test in which failure occurred. Defaults to the function name of the test case in which this function was called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
+@MainActor
 @discardableResult
 public func screenshot<V: View>(
     _ view: @autoclosure () throws -> V,
@@ -157,38 +160,54 @@ func makeFileAndDirectoryURLs(
 }
 
 extension View {
+    @MainActor
     func snapshot(scale: CGFloat) throws -> Data {
-        let root = self
-            .edgesIgnoringSafeArea(.top)
-        let controller = UIHostingController(rootView: root)
-        let view = controller.view
-        
-        let targetSize = controller.view.intrinsicContentSize
-        view?.bounds = CGRect(origin: .zero, size: targetSize)
-        view?.backgroundColor = .clear
-        
-        let format = UIGraphicsImageRendererFormat()
-        format.scale = scale
-        format.opaque = true
-        format.preferredRange = .extended
-        
-        let bounds = controller.view.bounds
-        let renderer = UIGraphicsImageRenderer(bounds: bounds, format: format)
-        var hasRendered = false
-        
-        let data = renderer.pngData { _ in
-            hasRendered = view?.drawHierarchy(in: bounds, afterScreenUpdates: true) ?? false
+        if #available(iOS 16, *) {
+            let renderer = ImageRenderer(content: self)
+            renderer.scale = .init(scale)
+            guard let uiImage = renderer.uiImage,
+                  let data = uiImage.pngData()
+            else {
+                throw RenderingError.other
+            }
+            
+            return data
+        } else {
+            let root = self
+                .edgesIgnoringSafeArea(.top)
+            let controller = UIHostingController(rootView: root)
+            let view = controller.view
+            
+            let targetSize = controller.view.intrinsicContentSize
+            view?.bounds = CGRect(origin: .zero, size: targetSize)
+            view?.backgroundColor = .clear
+            
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = scale
+            format.opaque = true
+            format.preferredRange = .extended
+            
+            let bounds = controller.view.bounds
+            let renderer = UIGraphicsImageRenderer(bounds: bounds, format: format)
+            var hasRendered = false
+            
+            let data = renderer.pngData { _ in
+                hasRendered = view?.drawHierarchy(in: bounds, afterScreenUpdates: true) ?? false
+            }
+            
+            guard hasRendered else {
+                throw RenderingError.drawHierarchyError
+            }
+            
+            return data
         }
-        
-        guard hasRendered else {
-            throw DrawHierarchyError()
-        }
-        
-        return data
     }
 }
 
-struct DrawHierarchyError: Error {}
+enum RenderingError: Error {
+    case other
+    case drawHierarchyError
+}
 
 extension String {
     func sanitize() -> String {
