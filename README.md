@@ -8,6 +8,10 @@ SwiftUI previews are not available in test targets, so if you want to have Swift
 
 `screenshot` and `screenshots`
 
+## Important note
+
+This library should be used in Xcode project (not Swift Package).
+
 ## Preparation
 
 _The following is optional, take it as an use example. For clarity and simplicity, we would consider ourselves living in the `SwiftUI` world._
