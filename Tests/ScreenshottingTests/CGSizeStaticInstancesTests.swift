@@ -34,7 +34,9 @@ final class CGSizeStaticInstancesTests: XCTestCase {
         /// `6.1"` (390 x 844 points @3x)
         /// iPhone 13 Pro, iPhone 13, iPhone 12 Pro, iPhone 12
         XCTAssertEqual(CGSize.iPhone13Pro.width, 390)
-        
+
+        XCTAssertEqual(CGSize.iPhone14Pro.width, 393)
+
         /// `6.5"` (414 x 896 points @3x)
         /// iPhone 11 Pro Max, iPhone XS Max
         XCTAssertEqual(CGSize.iPhoneXSMax.width, 414)
@@ -42,6 +44,8 @@ final class CGSizeStaticInstancesTests: XCTestCase {
         /// `6.7"` (428 x 926 points @3x)
         /// iPhone 13 Pro Max, iPhone 12 Pro Max
         XCTAssertEqual(CGSize.iPhone13ProMax.width, 428)
+
+        XCTAssertEqual(CGSize.iPhone14ProMax.width, 430)
     }
     
     func test_CGSize_height() {
@@ -64,11 +68,13 @@ final class CGSizeStaticInstancesTests: XCTestCase {
         /// `6.1"` (414 x 896 points @2x)
         /// iPhone 11, iPhone XR
         XCTAssertEqual(CGSize.iPhone11.height, 896)
-        
+
         /// `6.1"` (390 x 844 points @3x)
         /// iPhone 13 Pro, iPhone 13, iPhone 12 Pro, iPhone 12
         XCTAssertEqual(CGSize.iPhone13Pro.height, 844)
-        
+
+        XCTAssertEqual(CGSize.iPhone14Pro.height, 852)
+
         /// `6.5"` (414 x 896 points @3x)
         /// iPhone 11 Pro Max, iPhone XS Max
         XCTAssertEqual(CGSize.iPhoneXSMax.height, 896)
@@ -76,6 +82,8 @@ final class CGSizeStaticInstancesTests: XCTestCase {
         /// `6.7"` (428 x 926 points @3x)
         /// iPhone 13 Pro Max, iPhone 12 Pro Max
         XCTAssertEqual(CGSize.iPhone13ProMax.height, 926)
+
+        XCTAssertEqual(CGSize.iPhone14ProMax.height, 932)
     }
 }
 

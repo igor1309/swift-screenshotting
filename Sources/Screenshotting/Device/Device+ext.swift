@@ -31,8 +31,10 @@ public extension Device {
     
     /// `6.1"` (390 x 844 points @3x)
     /// iPhone 13 Pro, iPhone 13, iPhone 12 Pro, iPhone 12
+    static let iPhone14Pro: Self = .init(.iPhone, "iPhone 14 Pro", .iPhone14Pro, 3)
+    static let iPhone14: Self = .init(.iPhone, "iPhone 14", .iPhone14, 3)
     static let iPhone13Pro: Self = .init(.iPhone, "iPhone 13 Pro", .iPhone13Pro, 3)
-    
+
     /// `6.5"` (414 x 896 points @3x)
     /// iPhone 11 Pro Max, iPhone XS Max
     static let iPhoneXSMax: Self = .init(.iPhone, "iPhone XS Max", .iPhoneXSMax, 3)
@@ -40,9 +42,13 @@ public extension Device {
     /// `6.7"` (428 x 926 points @3x)
     /// iPhone 13 Pro Max, iPhone 12 Pro Max
     static let iPhone13ProMax: Self = .init(.iPhone, "iPhone 13 Pro Max", .iPhone13ProMax, 3)
+        
+    static let iPhone14ProMax: Self = .init(.iPhone, "iPhone 14 Pro Max", .iPhone14ProMax, 3)
+    static let iPhone14Plus: Self = .init(.iPhone, "iPhone 14 Plus", .iPhone14Plus, 3)
 }
 
 private extension Device {
+    
     init(_ type: DeviceType, _ name: String, _ size: CGSize, _ scale: CGFloat) {
         self.init(type, name: name, size: size, scale: scale)
     }
