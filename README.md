@@ -106,3 +106,8 @@ Been a huge fan of [Point-Free](https://www.pointfree.co) and `SnapshotTesting` 
 
 * Device chrome for iPad and other iPhones
 * iPhone 14 island
+
+## References
+
+* [App preview specifications - App Store Connect Help](https://help.apple.com/app-store-connect/#/dev4e413fcb8)  
+* [Screenshot specifications - App Store Connect Help](https://help.apple.com/app-store-connect/#/devd274dd925)  
