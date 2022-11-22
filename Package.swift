@@ -8,22 +8,56 @@ let package = Package(
         .iOS(.v15)
     ],
     products: [
-        .library(name: "AppStorePreviewing", targets: ["AppStorePreviewing"]),
-        .library(name: "Screenshotting", targets: ["Screenshotting"]),
+        .appStorePreviewing,
+        .screenshotting,
     ],
     targets: [
-        .target(
-            name: "AppStorePreviewing",
-            dependencies: ["Screenshotting"]
-        ),
-        .testTarget(
-            name: "AppStorePreviewingTests",
-            dependencies: ["AppStorePreviewing"]
-        ),
-        .target(name: "Screenshotting"),
-        .testTarget(
-            name: "ScreenshottingTests",
-            dependencies: ["Screenshotting"]
-        ),
+        .appStorePreviewing,
+        .appStorePreviewingTests,
+        .screenshotting,
+        .screenshottingTests,
     ]
 )
+
+extension Product {
+    
+    static let appStorePreviewing = library(
+        name: .appStorePreviewing,
+        targets: [.appStorePreviewing]
+    )
+    static let screenshotting = library(
+        name: .screenshotting,
+        targets: [.screenshotting]
+    )
+}
+
+extension Target {
+    
+    static let appStorePreviewing = target(
+        name: "AppStorePreviewing",
+        dependencies: ["Screenshotting"]
+    )
+    static let appStorePreviewingTests = testTarget(
+        name: "AppStorePreviewingTests",
+        dependencies: ["AppStorePreviewing"]
+    )
+    static let screenshotting = target(name: "Screenshotting")
+    static let screenshottingTests = testTarget(
+        name: "ScreenshottingTests",
+        dependencies: ["Screenshotting"]
+    )
+}
+
+extension Target.Dependency {
+    
+    static let appStorePreviewing = byName(name: .appStorePreviewing)
+    static let screenshotting = byName(name: .screenshotting)
+}
+
+private extension String {
+    
+    static let appStorePreviewing = "AppStorePreviewing"
+    static let appStorePreviewingTests = "AppStorePreviewingTests"
+    static let screenshotting = "Screenshotting"
+    static let screenshottingTests = "ScreenshottingTests"
+}
