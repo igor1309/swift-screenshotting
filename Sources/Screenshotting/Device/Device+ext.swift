@@ -41,10 +41,10 @@ public extension Device {
     
     /// `6.7"` (428 x 926 points @3x)
     /// iPhone 13 Pro Max, iPhone 12 Pro Max
-    static let iPhone13ProMax: Self = .init(.iPhone, "iPhone 13 Pro Max", .iPhone13ProMax, 3)
-        
     static let iPhone14ProMax: Self = .init(.iPhone, "iPhone 14 Pro Max", .iPhone14ProMax, 3)
     static let iPhone14Plus: Self = .init(.iPhone, "iPhone 14 Plus", .iPhone14Plus, 3)
+    
+    static let iPhone13ProMax: Self = .init(.iPhone, "iPhone 13 Pro Max", .iPhone13ProMax, 3)
 }
 
 private extension Device {
