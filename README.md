@@ -111,3 +111,4 @@ Been a huge fan of [Point-Free](https://www.pointfree.co) and `SnapshotTesting` 
 
 * [App preview specifications - App Store Connect Help](https://help.apple.com/app-store-connect/#/dev4e413fcb8)  
 * [Screenshot specifications - App Store Connect Help](https://help.apple.com/app-store-connect/#/devd274dd925)  
+* [iOS Resolution // Display properties of every iPhone, iPad and iPod touch Apple ever made](https://www.ios-resolution.com)
