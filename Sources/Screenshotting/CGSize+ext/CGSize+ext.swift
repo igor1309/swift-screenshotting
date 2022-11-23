@@ -66,3 +66,11 @@ public extension CGSize {
     static let iPhone12ProMax: Self = .init(width: 428, height: 926)
     static let iPhone13ProMax: Self = .init(width: 428, height: 926)
 }
+
+public extension CGSize {
+    
+    /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
+    /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
+    /// iPad Pro (2nd generation)
+    static let iPadPro12_9: Self = .init(width: 1_024, height: 1_366)
+}

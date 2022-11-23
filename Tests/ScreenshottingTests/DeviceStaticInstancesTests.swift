@@ -46,6 +46,12 @@ final class DeviceStaticInstancesTests: XCTestCase {
         XCTAssertEqual(Device.iPhone14ProMax.name, "iPhone 14 Pro Max")
         XCTAssertEqual(Device.iPhone14Plus.name, "iPhone 14 Plus")
         XCTAssertEqual(Device.iPhone13ProMax.name, "iPhone 13 Pro Max")
+        
+        /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
+        /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
+        /// iPad Pro (2nd generation)
+        XCTAssertEqual(Device.iPadPro12_9_6th.name, "iPad Pro (6th gen 12.9\")")
+        XCTAssertEqual(Device.iPadPro12_9_2nd.name, "iPad Pro (2nd gen 12.9\")")
     }
     
     func test_device_size() {
@@ -84,6 +90,12 @@ final class DeviceStaticInstancesTests: XCTestCase {
         XCTAssertEqual(Device.iPhone14ProMax.size, .iPhone14ProMax)
         XCTAssertEqual(Device.iPhone14Plus.size, .iPhone14Plus)
         XCTAssertEqual(Device.iPhone13ProMax.size, .iPhone13ProMax)
+   
+        /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
+        /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
+        /// iPad Pro (2nd generation)
+        XCTAssertEqual(Device.iPadPro12_9_6th.size, .iPadPro12_9)
+        XCTAssertEqual(Device.iPadPro12_9_2nd.size, .iPadPro12_9)
     }
     
     func test_device_scale() {
@@ -122,5 +134,11 @@ final class DeviceStaticInstancesTests: XCTestCase {
         XCTAssertEqual(Device.iPhone14ProMax.scale, 3)
         XCTAssertEqual(Device.iPhone14Plus.scale, 3)
         XCTAssertEqual(Device.iPhone13ProMax.scale, 3)
+        
+        /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
+        /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
+        /// iPad Pro (2nd generation)
+        XCTAssertEqual(Device.iPadPro12_9_6th.scale, 2)
+        XCTAssertEqual(Device.iPadPro12_9_2nd.scale, 2)
     }
 }

@@ -46,6 +46,11 @@ final class CGSizeStaticInstancesTests: XCTestCase {
         XCTAssertEqual(CGSize.iPhone13ProMax.width, 428)
 
         XCTAssertEqual(CGSize.iPhone14ProMax.width, 430)
+        
+        /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
+        /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
+        /// iPad Pro (2nd generation)
+        XCTAssertEqual(CGSize.iPadPro12_9.width, 1_024)
     }
     
     func test_CGSize_height() {
@@ -84,6 +89,11 @@ final class CGSizeStaticInstancesTests: XCTestCase {
         XCTAssertEqual(CGSize.iPhone13ProMax.height, 926)
 
         XCTAssertEqual(CGSize.iPhone14ProMax.height, 932)
+        
+        /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
+        /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
+        /// iPad Pro (2nd generation)
+        XCTAssertEqual(CGSize.iPadPro12_9.height, 1_366)
     }
 }
 
