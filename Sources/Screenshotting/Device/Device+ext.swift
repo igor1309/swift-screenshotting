@@ -52,8 +52,8 @@ public extension Device {
     /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
     /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
     /// iPad Pro (2nd generation)
-    static let iPadPro12_9_6th: Self = .init(.iPad, "iPad Pro (6th gen 12.9\")", .iPadPro12_9, 2)
-    static let iPadPro12_9_2nd: Self = .init(.iPad, "iPad Pro (2nd gen 12.9\")", .iPadPro12_9, 2)
+    static let iPadPro12_9_6th: Self = .init(.iPad, "iPad Pro (12.9-inch) (6th generation)", .iPadPro12_9, 2)
+    static let iPadPro12_9_2nd: Self = .init(.iPad, "iPad Pro (12.9-inch) (2nd generation)", .iPadPro12_9, 2)
 }
 
 private extension Device {

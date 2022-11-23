@@ -50,8 +50,8 @@ final class DeviceStaticInstancesTests: XCTestCase {
         /// `12.9"` 1024 x 1366 @2 | 2048 x 2732 pixels (portrait), 2732 x 2048 pixels (landscape)
         /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
         /// iPad Pro (2nd generation)
-        XCTAssertEqual(Device.iPadPro12_9_6th.name, "iPad Pro (6th gen 12.9\")")
-        XCTAssertEqual(Device.iPadPro12_9_2nd.name, "iPad Pro (2nd gen 12.9\")")
+        XCTAssertEqual(Device.iPadPro12_9_6th.name, "iPad Pro (12.9-inch) (6th generation)")
+        XCTAssertEqual(Device.iPadPro12_9_2nd.name, "iPad Pro (12.9-inch) (2nd generation)")
     }
     
     func test_device_size() {
