@@ -53,7 +53,9 @@ public extension Device {
     /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
     /// iPad Pro (2nd generation)
     static let iPadPro12_9_6th: Self = .init(.iPad, "iPad Pro (12.9-inch) (6th generation)", .iPadPro12_9, 2)
-    static let iPadPro12_9_3rd: Self = .init(.iPad, "iPad Pro (12.9-inch) (3rd generation)", .iPadPro12_9, 2)
+    // use `ipadPro129` in iPad Pro name for fastlane
+    // http://docs.fastlane.tools/actions/upload_to_app_store/#uploading-screenshots-for-ipad-pro-129-inch-3rd-generation
+    static let iPadPro12_9_3rd: Self = .init(.iPad, "iPad Pro (12.9-inch) (3rd generation) ipadPro129", .iPadPro12_9, 2)
     static let iPadPro12_9_2nd: Self = .init(.iPad, "iPad Pro (12.9-inch) (2nd generation)", .iPadPro12_9, 2)
 }
 

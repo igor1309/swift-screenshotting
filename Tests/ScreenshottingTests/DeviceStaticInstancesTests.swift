@@ -51,7 +51,7 @@ final class DeviceStaticInstancesTests: XCTestCase {
         /// iPad Pro (6th generation, 5th generation, 4th generation, 3rd generation)
         /// iPad Pro (2nd generation)
         XCTAssertEqual(Device.iPadPro12_9_6th.name, "iPad Pro (12.9-inch) (6th generation)")
-        XCTAssertEqual(Device.iPadPro12_9_3rd.name, "iPad Pro (12.9-inch) (3rd generation)")
+        XCTAssertEqual(Device.iPadPro12_9_3rd.name, "iPad Pro (12.9-inch) (3rd generation) ipadPro129")
         XCTAssertEqual(Device.iPadPro12_9_2nd.name, "iPad Pro (12.9-inch) (2nd generation)")
     }
     
